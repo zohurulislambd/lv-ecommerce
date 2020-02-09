@@ -1,0 +1,22 @@
+.mrtop30{
+    margin-top: 30px;
+}
+
+.feature_img{
+    max-height: 200px;
+}
+
+footer {
+    background: rgb(211, 200, 200);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    content: '';
+    width: 100%;
+}
+footer p{
+    padding: 7px 0px;
+}
+.padTop20{
+    padding-top:20
+}
