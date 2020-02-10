@@ -36,8 +36,8 @@ Route::get('product', function () {
 
 //Route::get('/test','CrudController@index');
 Route::get('/admin','AdminPagesController@index')->name('admin');
-Route::get('/admin/product','ProductItemController@index')->name('productList');
-Route::get('/admin/productItem','ProductItemController@list');
+//Route::get('/admin/product','ProductItemController@index')->name('productList');
+Route::get('/admin/productItem','ProductItemController@list')->name('productItem');
 Route::get('/admin/create','ProductItemController@create')->name('addProduct');
 Route::post('/admin/store','ProductItemController@store');
 

@@ -15,6 +15,7 @@ class AddImageToProductItems extends Migration
     {
         Schema::table('product_items', function (Blueprint $table) {
             $table->string('image')->after('quantity');
+//            $table->string('description', 255)->change();
         });
     }
 

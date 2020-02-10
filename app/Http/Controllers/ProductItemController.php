@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 use App\ProductItem;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use PhpParser\Node\Stmt\Echo_;
 
 class ProductItemController extends Controller
 {
-   public function index(){
+  /* public function index(){
         return view('backend/pages/product/index');
-    }
+    }*/
     public function create(){
         return view('backend/pages/product/create');
     }
@@ -43,7 +44,7 @@ class ProductItemController extends Controller
     }
 //    dd($request->all());
     ProductItem::create($data);
-       return back()->with('success', "insert successfully");
+       return redirect::to(route('productItem'))->with('success', "insert successfully");
     }
 
 
@@ -77,12 +78,13 @@ class ProductItemController extends Controller
     public function list(){
         $data['allProductItms'] =  ProductItem::all();
         return view('backend/pages/product/index',$data) ;
+   /*  $data = ProductItem::all();
+     echo "$data"*/;
     }
 
     public function delete(ProductItem $productItem){
         $productItem->delete;
         return view('',$data);
-
     }
 
 
