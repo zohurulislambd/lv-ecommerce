@@ -16,34 +16,27 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
+                                <th>Sl. No.</th>
+                                <th>Product Name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Description</th>
+                                <th>Image</th>
+                                <th>Action</th>
                             </tr>
                             </thead>
-                            <tfoot>
-                            <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
-                            </tr>
-                            </tfoot>
-                            <tbody>
+                           <tbody>
+
+                            <?php $sl = 1; ?>
                             @foreach($allProductItms as $data)
                             <tr>
+                                <td class="border-left">{{ $sl++ }}</td>
                                 <td>{{ $data->title }}</td>
                                 <td>{{ $data->price }}</td>
                                 <td>{{ $data->quantity }}</td>
                                 <td>{{ $data->description }}</td>
-{{--                                <td><img src="<?php echo asset('public/uploads{{ $data->image }}') ?>" alt="Product Image" height="50"></td>--}}
-                                <td><img src="<?php echo asset("public/uploads/$data->image")?>" width="50px"></img></td>
-                                <td> <a type="button" class="btn-warning btn-sm" href="#">Edit</a> || <a type="button" class="btn-danger btn-sm" href="#">Delete</a></td>
+                                <td><img src="<?php echo asset('public/uploads.'.$data->image) ?>" width="50px"></img></td>
+                                <td><a type="button" class="btn-warning btn-sm" href="#">Edit</a> || <a type="button" class="btn-danger btn-sm" href="#">Delete</a></td>
                             </tr>
                            @endforeach
                             </tbody>
