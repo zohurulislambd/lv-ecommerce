@@ -39,7 +39,7 @@ class ProductItemController extends Controller
     if ($request->hasFile('image')){
         $image = $request->file('image');
         $data['image'] = md5(time().rand()).'.'.$image->getClientOriginalExtension();
-        $destination = public_path('uploads/').$data['image'];
+        $destination = public_path('images/').$data['image'];
         $image->move($destination,$data['image']);
     }
 //    dd($request->all());
