@@ -41,7 +41,10 @@ Route::get('/admin/productItem','ProductItemController@list')->name('productItem
 Route::get('/admin/create','ProductItemController@create')->name('addProduct');
 Route::post('/admin/store','ProductItemController@store');
 
-Route::get('/admin/productItem/{$productItem}/edit','ProductItemController@edit');
+
+Route::get('/admin/showImage','ProductItemController@showImage'); /*testing perpose */
+
+Route::get('/admin/productItem/edit','ProductItemController@edit')->name('editProduct');
 Route::patch('/admin/productItem/{$productItem}/edit','ProductItemController@update');
 Route::delete('/admin/productItem/{$productItem}','ProductItemController@delete');
 

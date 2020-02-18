@@ -33,10 +33,11 @@
                                 <td class="border-left">{{ $sl++ }}</td>
                                 <td>{{ $data->title }}</td>
                                 <td>{{ $data->price }}</td>
-                                <td>{{ $data->quantity }}</td>
+                                <td>{{ $data->quantity }} </td>
                                 <td>{{ substr($data->description,0,40) }}</td>
-                                <td><img src="<?php echo asset('public/images/'.$data->image) ?>" width="50px"></img></td>
-                                <td><a type="button" class="btn-warning btn-sm" href="#">Edit</a> || <a type="button" class="btn-danger btn-sm" href="#">Delete</a></td>
+
+                                <td><img src="{{ asset("/images/").'/'.$data->image }}" width="50px"/></td>
+                                <td><a type="button" class="btn-warning btn-sm" href="{{--{{ route('editProduct') }}--}}">Edit</a> || <a type="button" class="btn-danger btn-sm" href="#">Delete</a></td>
                             </tr>
                            @endforeach
                             </tbody>

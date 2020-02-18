@@ -49,12 +49,7 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-      </path>
-    </expand>
+    <expand />
     <select />
   </component>
   <component name="Git.Settings">
@@ -182,7 +177,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -298,7 +293,13 @@
       <workItem from="1581312621338" duration="9538000" />
       <workItem from="1581403174940" duration="4034000" />
       <workItem from="1581487921429" duration="2921000" />
-      <workItem from="1581500884340" duration="2669000" />
+      <workItem from="1581500884340" duration="3353000" />
+      <workItem from="1581570809074" duration="5967000" />
+      <workItem from="1581586105727" duration="3662000" />
+      <workItem from="1581844506938" duration="1505000" />
+      <workItem from="1581846075173" duration="4892000" />
+      <workItem from="1581916140968" duration="8941000" />
+      <workItem from="1582001297909" duration="7522000" />
     </task>
     <servers />
   </component>

@@ -26,12 +26,13 @@
                         </ul>
                     </div>
                 @endif
-                <form action="{{url('/admin/update')}}" method="post" enctype="multipart/form-data">
+                <form action="" method="post" enctype="multipart/form-data">
                     {{--                       {{csrf_field()}}--}}
                     @csrf
+{{--                    {{ csrf_field('PATCH') }}--}}
                     <div class="form-group">
                         <label for="title">Title</label>
-                        <input type="text" name="title" class="form-control" value="{{ old('title') }}" id="title">
+                        <input type="text" name="title" class="form-control" value="{{ $productItem->title }}" id="title">
                     </div>
                     <div class="form-group">
                         <label for="price">Price</label>

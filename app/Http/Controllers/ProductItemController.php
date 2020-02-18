@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\ProductImage;
 use App\ProductItem;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 use PhpParser\Node\Stmt\Echo_;
 
 class ProductItemController extends Controller
@@ -16,42 +18,39 @@ class ProductItemController extends Controller
         return view('backend/pages/product/create');
     }
     public function store(Request $request){
-       $request->validate([
+       $this->validate($request,[
            'title'=>'required',
            'price'=>'required',
            'quantity'=>'required',
            'description'=>'required',
-           'image'=> 'required'
+           'image'=>'required|mimes:jpeg,png,jpg,gif|max:2048',
        ]);
-       $data = $request->all();
-
-      /* $product_title = $request->input('title');
-       $product_price = $request->input('price');
-       $product_qty = $request->input('qty');
-       $product_desc = $request->input('description');
-       ProductItem::insert([
-           'title'=> $product_title,
-           'price' => $product_price,
-           'quantity' =>$product_qty,
-           'description' =>$product_desc,
-           'created_at' =>Carbon::now()
-       ]);*/
-    if ($request->hasFile('image')){
-        $image = $request->file('image');
-        $data['image'] = md5(time().rand()).'.'.$image->getClientOriginalExtension();
-        $destination = public_path('images/').$data['image'];
-        $image->move($destination,$data['image']);
+       $image = $request->file('image');
+       $new_name = md5(time()).'.'. $image->getClientOriginalExtension();
+       $image->move(public_path("images"), $new_name);
+       ProductItem::create([
+           'title' => $request->title,
+           'price' => $request->price,
+           'quantity' => $request->quantity,
+           'description' => $request->description,
+           'image' => $new_name
+       ]);
+       return back()->with('success', 'Image upload successfully');
     }
-//    dd($request->all());
-    ProductItem::create($data);
-       return redirect::to(route('productItem'))->with('success', "insert successfully");
+
+    //    just image show
+    public function showImage(){
+        $url = Storage::url('images/7b66d1c8ad80b7e300ab34581ab01c2e.jpg');
+        return "<img src='".$url."'/>";
     }
 
 
     public function edit(ProductItem $productItem){
        $data['edit'] = $productItem;
-       return view('', $data);
+       return view('backend/pages/product/edit', $data);
+
     }
+
     public function update(ProductItem $productItem){
         $request->validate([
             'title'=>'required',
@@ -86,6 +85,8 @@ class ProductItemController extends Controller
         $productItem->delete;
         return view('',$data);
     }
+
+
 
 
 }
