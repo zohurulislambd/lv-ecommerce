@@ -38,42 +38,45 @@ class ProductItemController extends Controller
        return back()->with('success', 'Image upload successfully');
     }
 
-    //    just image show
-    public function showImage(){
-        $url = Storage::url('images/7b66d1c8ad80b7e300ab34581ab01c2e.jpg');
-        return "<img src='".$url."'/>";
-    }
 
-
-    public function edit(ProductItem $productItem){
+    /*public function edit(ProductItem $productItem){
        $data['edit'] = $productItem;
        return view('backend/pages/product/edit', $data);
-
+    }*/
+    public function edit(Request $id){
+       $products = ProductItem:: find($id);
+       return view('backend/pages/product/edit', compact('products', 'id'));
     }
 
-    public function update(ProductItem $productItem){
-        $request->validate([
+    public function update(Request $request, $id){
+        $this->validate($request,[
             'title'=>'required',
             'price'=>'required',
             'quantity'=>'required',
             'description'=>'required',
-            'image'=>'required'
+//            'image'=>'required'
         ]);
+        $products = ProductItem::find($id);
+        $products->title = $request->get('title');
+        $products->price = $request->get('price');
+        $products->quantity = $request->get('quantity');
+        $products->description = $request->get('description');
 
-        $data =$request->all();
+        $products->save();
+        /*$data =$request->all();
 
         if($request->hasFile('image')){
             $image = $request->file('image');
             $data['image'] = md5(time().time().rand()).'.'.$image->getClientOriginalExtension();
             $destination = public_path('uploads/').$data['image'] ;
             @unlink(public_path('uploads/').$productItem->image);
-            $image->move($destination, $data['image']);
+            $image->move($destination, $data['image']);*/
+//        $productItem->update($data);
+
+        return redirect()->route('productItem')->with('success','Updated Successfull');
         }
 
-        $productItem->update($data);
 
-        return back()->with('success', "insert successfully");
-    }
     public function list(){
         $data['allProductItms'] =  ProductItem::all();
         return view('backend/pages/product/index',$data) ;

@@ -20,4 +20,12 @@ class ProductItem extends Model
         'title','price','quantity', 'image',
         'description'
     ];
+
+    public static function find($id)
+    {
+    }
+
+    public function get(string $string)
+    {
+    }
 }

@@ -26,29 +26,30 @@
                         </ul>
                     </div>
                 @endif
-                <form action="" method="post" enctype="multipart/form-data">
+                <form action="{{ route('ProductItemController@update', $id)}}" method="post" enctype="multipart/form-data">
                     {{--                       {{csrf_field()}}--}}
                     @csrf
 {{--                    {{ csrf_field('PATCH') }}--}}
+                    <input type="hidden" name="_method" value="PATCH">
                     <div class="form-group">
                         <label for="title">Title</label>
-                        <input type="text" name="title" class="form-control" value="{{ $productItem->title }}" id="title">
+                        <input type="text" name="title" class="form-control" value="{{ $products->title }}" id="title">
                     </div>
                     <div class="form-group">
                         <label for="price">Price</label>
-                        <input type="number" name="price" class="form-control"  value="{{ old('price') }}" id="price">
+                        <input type="number" name="price" class="form-control"  value="{{ $products->price }}" id="price">
                     </div>
                     <div class="form-group">
                         <label for="quantity">Quantity</label>
-                        <input type="number" name="quantity" class="form-control"  value="{{ old('quantity') }}" id="quantity">
+                        <input type="number" name="quantity" class="form-control"  value="{{ $products->quantity }}" id="quantity">
                     </div>
                     <div class="form-group">
                         <label for="image">Upload Image</label>
-                        <input type="file" name="image" class="form-control"  value="{{ old('image') }}" id="quantity">
+                        <input type="file" name="image" class="form-control"  value="{{ $products->image }}" id="quantity">
                     </div>
                     <div class="form-group">
                         <label for="desc">Description:</label>
-                        <textarea name="description" id="desc" value="{{old('description')}}" class="form-control" cols="4" rows="2"></textarea>
+                        <textarea name="description" id="desc" value="{{ $products->description }}" class="form-control" cols="4" rows="2"></textarea>
                     </div>
                     <input type="submit" value="Submit">
                 </form>
