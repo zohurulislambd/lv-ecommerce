@@ -37,7 +37,13 @@
                                 <td>{{ substr($data->description,0,40) }}</td>
 
                                 <td><img src="{{ asset("/images/").'/'.$data->image }}" width="50px"/></td>
-                                <td><a type="button" class="btn-warning btn-sm" href="{{ route('editProduct', $data['id'] ) }}">Edit</a> || <a type="button" class="btn-danger btn-sm" href="#">Delete</a></td>
+                                <td>
+                                   <button type="button" class="btn-warning btn-sm" href='{{url("admin/product/$data->id/edit")}}'>Edit</button> || <form action='{{url("admin/product/$data->id")}}' method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger btn-sm" type="submit" onclick="return confirm('Are you sure delete!!!')">Delete</button>
+                                    </form>
+                                </td>
                             </tr>
                            @endforeach
                             </tbody>

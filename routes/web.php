@@ -41,9 +41,9 @@ Route::get('/admin/productItem','ProductItemController@list')->name('productItem
 Route::get('/admin/create','ProductItemController@create')->name('addProduct');
 Route::post('/admin/store','ProductItemController@store');
 
-Route::get('/admin/edit','ProductItemController@edit')->name('editProduct');
-Route::patch('/admin/edit','ProductItemController@update')->name('updateProduct');
-Route::delete('/admin/productItem/{$productItem}','ProductItemController@delete');
+Route::get('/admin/product/{item}/edit','ProductItemController@edit');
+Route::patch('admin/product/{item}/edit','ProductItemController@update');
+Route::delete('/admin/product/{item}','ProductItemController@delete');
 
 
 
