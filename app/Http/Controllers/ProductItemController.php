@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\ProductImage;
 use App\ProductItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use PhpParser\Node\Expr\New_;
 
 
 class ProductItemController extends Controller
@@ -26,20 +28,17 @@ class ProductItemController extends Controller
             'description' => 'required',
             'image' => 'required|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
+
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $data['image'] = md5(time()) . '.' . $image->getClientOriginalExtension();
             $image->move(public_path("images"), $data['image']);
-
+//            $data = new ProductImage;
         }
         ProductItem::create($data);
         return redirect('admin/productItem')->with('success', 'Image upload successfully');
     }
 
-    /*public function edit(ProductItem $productItem){
-    $data['edit'] = $productItem;
-    return view('backend/pages/product/edit', $data);
-    }*/
     public function edit(ProductItem $item)
     {
         $data['product'] = $item;
