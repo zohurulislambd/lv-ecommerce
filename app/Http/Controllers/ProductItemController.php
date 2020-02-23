@@ -43,7 +43,9 @@ class ProductItemController extends Controller
     public function edit(ProductItem $item)
     {
         $data['product'] = $item;
+//        dd($data);
         return view('backend/pages/product/edit', $data);
+
     }
 
     public function update(ProductItem $item, Request $request)
@@ -55,16 +57,13 @@ class ProductItemController extends Controller
             'quantity' => 'required',
             'description' => 'required',
         ]);
-
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $data['image'] = md5(time()) . '.' . $image->getClientOriginalExtension();
             @unlink(public_path("images/") . $item->image);
             $image->move(public_path("images"), $data['image']);
-
         }
 
-        //return $data;
         $item->update($data);
 
         return redirect()->route('productItem')->with('success', 'Updated Successfull');

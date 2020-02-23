@@ -38,7 +38,8 @@
 
                                 <td><img src="{{ asset("/images/").'/'.$data->image }}" width="50px"/></td>
                                 <td>
-                                   <button type="button" class="btn-warning btn-sm" href='{{url("admin/product/$data->id/edit")}}'>Edit</button> || <form action='{{url("admin/product/$data->id")}}' method="post">
+                                   <a href='{{url("admin/product/$data->id/edit")}}'  type="button" class="btn-warning btn-sm"> Edit </a>||
+                                    <form action='{{url("admin/product/$data->id")}}' method="post">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-danger btn-sm" type="submit" onclick="return confirm('Are you sure delete!!!')">Delete</button>

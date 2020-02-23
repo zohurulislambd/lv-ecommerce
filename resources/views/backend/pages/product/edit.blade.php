@@ -27,7 +27,7 @@
                     </div>
                 @endif
                 <form action='{{url("admin/product/$product->id/edit")}}' method="post" enctype="multipart/form-data">
-                    {{--                       {{csrf_field()}}--}}
+                    {{--{{csrf_field()}}--}}
                     @csrf
 {{--                    {{ csrf_field('PATCH') }}--}}
                     <input type="hidden" name="_method" value="PATCH">
@@ -45,8 +45,8 @@
                     </div>
                     <div class="form-group">
                         <label for="image">Upload Image</label>
-                        <input type="file" name="image" class="form-control"  id="quantity">
-                    <img src='{{asset("images/$product->image")}}' height="50px" alt="">
+                        <input type="file" name="image" class="form-control"  id="image">
+                        <img src='{{asset("images/$product->image")}}' height="100px" alt="">
                     </div>
                     <div class="form-group">
                         <label for="desc">Description:</label>

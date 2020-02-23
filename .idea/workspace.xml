@@ -208,6 +208,22 @@
       <method v="2" />
     </configuration>
   </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <option name="contentProportion" value="0.26880315" />
+        <treeState>
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@3b27e2a4" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+          </expand>
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -301,6 +317,7 @@
       <workItem from="1581916140968" duration="8941000" />
       <workItem from="1582001297909" duration="7588000" />
       <workItem from="1582094332754" duration="8983000" />
+      <workItem from="1582436561466" duration="5845000" />
     </task>
     <servers />
   </component>
