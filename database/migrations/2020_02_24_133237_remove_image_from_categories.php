@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddImageToProductItems extends Migration
+class RemoveImageFromCategories extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class AddImageToProductItems extends Migration
      */
     public function up()
     {
-        Schema::table('product_items', function (Blueprint $table) {
-            $table->string('image')->after('quantity');
-//            $table->string('description', 255)->change();
+        Schema::table('categories', function (Blueprint $table) {
+//            Schema::dropColumn('image');
+            $table->dropColumn('image');
         });
     }
 
@@ -26,7 +26,7 @@ class AddImageToProductItems extends Migration
      */
     public function down()
     {
-        Schema::table('product_items', function (Blueprint $table) {
+        Schema::table('categories', function (Blueprint $table) {
             //
         });
     }

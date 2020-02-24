@@ -18,6 +18,7 @@ class ProductItemController extends Controller
     {
         return view('backend/pages/product/create');
     }
+
     public function store(Request $request)
     {
         $data = $request->all();
@@ -33,9 +34,14 @@ class ProductItemController extends Controller
             $image = $request->file('image');
             $data['image'] = md5(time()) . '.' . $image->getClientOriginalExtension();
             $image->move(public_path("images"), $data['image']);
-//            $data = new ProductImage;
         }
-        ProductItem::create($data);
+        $productItem = ProductItem::create($data);
+
+        ProductImage::create([
+            'image' =>   $data['image'],
+            'products_id' => $productItem->id,
+
+        ]);
         return redirect('admin/productItem')->with('success', 'Image upload successfully');
     }
 
@@ -68,16 +74,17 @@ class ProductItemController extends Controller
         return redirect()->route('productItem')->with('success', 'Updated Successfull');
     }
 
-    function list() {
+    function list()
+    {
         $data['allProductItms'] = ProductItem::orderBy('id', 'DESC')->get();
-        return view('backend/pages/product/index', $data);
-        /*  $data = ProductItem::all();
+        return $data;
+        return view('backend/pages/product/index', $data);/*  $data = ProductItem::all();
         echo "$data"*/;
     }
 
     public function delete(ProductItem $item)
     {
-        @unlink(public_path("images/").$item->image);
+        @unlink(public_path("images/") . $item->image);
         $item->delete();
 
         return redirect('admin/productItem');

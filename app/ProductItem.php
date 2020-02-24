@@ -17,7 +17,7 @@ class ProductItem extends Model
         return $this->hasMany('App\ProductImage'); //one to many relations
     }*/
     protected $fillable = [
-        'title','price','quantity', 'image',
+        'title','price','quantity',
         'description'
     ];
 
