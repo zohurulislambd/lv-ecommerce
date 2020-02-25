@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\ProductImage;
 use App\ProductItem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use PhpParser\Node\Expr\New_;
 
@@ -37,11 +38,12 @@ class ProductItemController extends Controller
         }
         $productItem = ProductItem::create($data);
 
+    //    image insert to product_images
         ProductImage::create([
             'image' =>   $data['image'],
             'products_id' => $productItem->id,
-
         ]);
+
         return redirect('admin/productItem')->with('success', 'Image upload successfully');
     }
 
@@ -68,7 +70,6 @@ class ProductItemController extends Controller
             @unlink(public_path("images/") . $item->image);
             $image->move(public_path("images"), $data['image']);
         }
-
         $item->update($data);
 
         return redirect()->route('productItem')->with('success', 'Updated Successfull');
@@ -76,10 +77,10 @@ class ProductItemController extends Controller
 
     function list()
     {
-        $data['allProductItms'] = ProductItem::orderBy('id', 'DESC')->get();
-        return $data;
-        return view('backend/pages/product/index', $data);/*  $data = ProductItem::all();
-        echo "$data"*/;
+        $data['allProductItms'] =ProductItem::with('productPhotos')->get();
+//        return $data;
+        return view('backend/pages/product/index', $data);
+
     }
 
     public function delete(ProductItem $item)

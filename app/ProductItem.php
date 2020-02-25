@@ -21,12 +21,8 @@ class ProductItem extends Model
         'description'
     ];
 
-    public function productImage(){
-        return $this->hasMany(ProductImage::Class);
-    }
-
-    public function images(){
-        return $this->hasMany('App\ProductImage');
+    public function productPhotos(){
+        return $this->hasMany(ProductImage::class,'products_id');
     }
 
     public static function find($id)
