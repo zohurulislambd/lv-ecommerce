@@ -28,7 +28,7 @@ class ProductItemController extends Controller
             'price' => 'required',
             'quantity' => 'required',
             'description' => 'required',
-            'image' => 'required|mimes:jpeg,png,jpg,gif|max:2048',
+//            'image' => 'required|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         if ($request->hasFile('image')) {
@@ -36,9 +36,21 @@ class ProductItemController extends Controller
             $data['image'] = md5(time()) . '.' . $image->getClientOriginalExtension();
             $image->move(public_path("images"), $data['image']);
         }
-        $productItem = ProductItem::create($data);
 
-    //    image insert to product_images
+      /*multiple image upload to Product_Image table*/
+//        $productItem = ProductItem::create($data);
+       /* $product_image =  new ProductImage;
+        if (count($request->$product_image) > 0){
+              foreach ($request->$product_image as $image){
+                  $image = $request->file('image');
+                  $data['image'] = md5(time()) . '.' . $image->getClientOriginalExtension();
+                  $image->move(public_path("images"), $data['image']);
+                  $productItem = ProductItem::create($data);
+              }
+          }*/
+        $productItem = ProductItem::create($data);
+        //    image insert to product_image
+     // --ProductImage Model
         ProductImage::create([
             'image' =>   $data['image'],
             'products_id' => $productItem->id,
@@ -77,10 +89,9 @@ class ProductItemController extends Controller
 
     function list()
     {
-        $data['allProductItms'] =ProductItem::with('productPhotos')->get();
+        $data['allProductItms'] =ProductItem::with('productPhotos')->orderBy('id','Desc')->get();
 //        return $data;
         return view('backend/pages/product/index', $data);
-
     }
 
     public function delete(ProductItem $item)

@@ -173,6 +173,10 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+/*
+ * Third party providers
+ * */
+        'Intervention\Image\ImageServiceProvider',
 
     ],
 
@@ -224,7 +228,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        /*
+         * Third party aliases
+         * */
+        'Image' => 'Intervention\Image\Facades\Image',
     ],
 
 ];
