@@ -41,19 +41,19 @@
                            <label for="quantity">Quantity</label>
                            <input type="number" name="quantity" class="form-control"  value="{{ old('quantity') }}" id="quantity">
                        </div>
-                       <div class="form-group">
+                      {{-- <div class="form-group">
                            <label for="image">Upload Image</label>
                            <input type="file" name="image" class="form-control"  value="{{ old('image') }}" id="quantity">
-                       </div>
-{{--                       multiple image insert--}}
-                       {{-- <div class="form-group">
+                       </div>--}}
+{{--                       {{--multiple image insert--}}
+                        <div class="form-group">
                          <div class="row">
                              <label for="image">Upload Image</label>
-                             <div class="col-3"> <input type="file" name="image[]" class="form-control"  value="{{ old('image') }}" id="quantity"></div>
-                             <div class="col-3"> <input type="file" name="image[]" class="form-control"  value="{{ old('image') }}" id="quantity"></div>
-                             <div class="col-3"> <input type="file" name="image[]" class="form-control"  value="{{ old('image') }}" id="quantity"></div>
+                             <div class="col-3"> <input type="file" name="image[]" class="form-control"  value="{{ old('image[]') }}" id="quantity"></div>
+                             <div class="col-3"> <input type="file" name="image[]" class="form-control"  value="{{ old('image[]') }}" id="quantity"></div>
+                             <div class="col-3"> <input type="file" name="image[]" class="form-control"  value="{{ old('image[]') }}" id="quantity"></div>
                          </div>
-                       </div>--}}
+                       </div>
 
                        <div class="form-group">
                            <label for="desc">Description:</label>

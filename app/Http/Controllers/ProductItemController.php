@@ -28,14 +28,29 @@ class ProductItemController extends Controller
             'price' => 'required',
             'quantity' => 'required',
             'description' => 'required',
-//            'image' => 'required|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'required'//|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $data['image'] = md5(time()) . '.' . $image->getClientOriginalExtension();
+        if(count($request->image) < 1){
+            return redirect('admin/productItem')->with('error', 'Must select at least one image');
+        }
+
+//        dd(count($request->image));
+        $images = [];
+        for ($i = 0; $i < count($request->image); $i++){
+            $image = $request->image[$i];
+            $data['image'] = $i.md5(time()) . '.' . $image->getClientOriginalExtension();
+            $images[] = $data['image'];
             $image->move(public_path("images"), $data['image']);
         }
+
+//        dd("tomaqto");
+
+//        if ($request->hasFile('image')) {
+//            $image = $request->file('image');
+//            $data['image'] = md5(time()) . '.' . $image->getClientOriginalExtension();
+//            $image->move(public_path("images"), $data['image']);
+//        }
 
       /*multiple image upload to Product_Image table*/
 //        $productItem = ProductItem::create($data);
@@ -51,13 +66,17 @@ class ProductItemController extends Controller
         $productItem = ProductItem::create($data);
         //    image insert to product_image
      // --ProductImage Model
-        ProductImage::create([
-            'image' =>   $data['image'],
-            'products_id' => $productItem->id,
-        ]);
+        for ($i = 0; $i < count($images); $i++){
+            $image = $images[$i];
+            ProductImage::create([
+                'image' =>   $image,
+                'products_id' => $productItem->id,
+            ]);
+        }
 
         return redirect('admin/productItem')->with('success', 'Image upload successfully');
     }
+    // store method ENDS
 
     public function edit(ProductItem $item)
     {
@@ -98,7 +117,6 @@ class ProductItemController extends Controller
     {
         @unlink(public_path("images/") . $item->image);
         $item->delete();
-
         return redirect('admin/productItem');
     }
 
