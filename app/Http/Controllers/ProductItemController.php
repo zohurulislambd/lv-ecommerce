@@ -35,7 +35,6 @@ class ProductItemController extends Controller
             return redirect('admin/productItem')->with('error', 'Must select at least one image');
         }
 
-//        dd(count($request->image));
         $images = [];
         for ($i = 0; $i < count($request->image); $i++){
             $image = $request->image[$i];
@@ -43,8 +42,6 @@ class ProductItemController extends Controller
             $images[] = $data['image'];
             $image->move(public_path("images"), $data['image']);
         }
-
-//        dd("tomaqto");
 
 //        if ($request->hasFile('image')) {
 //            $image = $request->file('image');
@@ -83,7 +80,6 @@ class ProductItemController extends Controller
         $data['product'] = $item;
 //        dd($data);
         return view('backend/pages/product/edit', $data);
-
     }
 
     public function update(ProductItem $item, Request $request)
@@ -94,17 +90,32 @@ class ProductItemController extends Controller
             'price' => 'required',
             'quantity' => 'required',
             'description' => 'required',
+//            'image' => 'required',
         ]);
-        if ($request->hasFile('image')) {
+//      multiple image update
+        $images = [];
+        for ($i = 0; $i < count(array($request->image)); $i++){
+            $image = $request->image[$i];
+            $data['image'] = $i.md5(time()) . '.' . $image->getClientOriginalExtension();
+            @unlink($images[] = $data['image']);
+            $image->move(public_path("images"), $data['image']);
+        }
+        dd($data);
+//        single image update
+       /* if ($request->hasFile('image')) {
             $image = $request->file('image');
             $data['image'] = md5(time()) . '.' . $image->getClientOriginalExtension();
             @unlink(public_path("images/") . $item->image);
             $image->move(public_path("images"), $data['image']);
-        }
+        }*/
         $item->update($data);
 
         return redirect()->route('productItem')->with('success', 'Updated Successfull');
     }
+
+    /*
+     * update method END
+     * */
 
     function list()
     {
@@ -112,7 +123,9 @@ class ProductItemController extends Controller
 //        return $data;
         return view('backend/pages/product/index', $data);
     }
-
+/*
+ * list method end
+ * */
     public function delete(ProductItem $item)
     {
         @unlink(public_path("images/") . $item->image);

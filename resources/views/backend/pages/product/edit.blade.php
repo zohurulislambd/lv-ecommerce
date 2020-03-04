@@ -43,11 +43,16 @@
                         <label for="quantity">Quantity</label>
                         <input type="number" name="quantity" class="form-control"  value="{{ $product->quantity ?? ''}}" id="quantity">
                     </div>
+
                     <div class="form-group">
                         <label for="image">Upload Image</label>
-                        <input type="file" name="image" class="form-control"  id="image">
-                        <img src='{{asset("images/$product->image")}}' height="100px" alt="">
+                        @foreach($product->productPhotos as $photo)
+                            <input type="file" name="image[]" class="form-control"  multiple id="image">
+                            <img src='{{asset("images/$photo->image")}}' height="100px" alt="">
+                        @endforeach
+
                     </div>
+
                     <div class="form-group">
                         <label for="desc">Description:</label>
                         <textarea name="description" id="desc"  class="form-control" cols="4" rows="2">{{ $product->description ?? '' }}</textarea>
