@@ -44,7 +44,11 @@ Route::post('/admin/store','ProductItemController@store');
 Route::get('/admin/product/{item}/edit','ProductItemController@edit');
 Route::patch('admin/product/{item}/edit','ProductItemController@update');
 Route::delete('/admin/product/{item}','ProductItemController@delete');
+/*
+ * categories
+ * */
 
+Route::get('admin/categories','CategoryController@index')->name('categories');
 
 
 
@@ -65,3 +69,6 @@ Route::get('/logout','AuthController@logout')->name('logout');*/
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+

@@ -154,7 +154,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../blog" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/backend/pages/categories" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -164,17 +164,18 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\xampp\htdocs\lv-ecommerce\resources\views\backend\pages\categories" />
+      <recent name="D:\xampp\htdocs\lv-ecommerce\resources\views" />
+      <recent name="D:\xampp\htdocs\lv-ecommerce\public\addmin" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\xampp\htdocs\lv-ecommerce\resources\views\frondend" />
       <recent name="D:\xampp\htdocs\lv-ecommerce\resources\views\admin\pages\product" />
       <recent name="E:\xampp\htdocs\laraveltkh\resources\views\layouts" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\xampp\htdocs\lv-ecommerce\resources\views" />
-      <recent name="D:\xampp\htdocs\lv-ecommerce\public\addmin" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -311,7 +312,8 @@
       <workItem from="1582780275390" duration="1325000" />
       <workItem from="1583145135058" duration="4450000" />
       <workItem from="1583212597816" duration="4328000" />
-      <workItem from="1583299495884" duration="7712000" />
+      <workItem from="1583299495884" duration="8313000" />
+      <workItem from="1583386901636" duration="5262000" />
     </task>
     <servers />
   </component>
