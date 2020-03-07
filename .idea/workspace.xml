@@ -2,14 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="96096486-0479-42b7-9d2b-fe087e2a4f4f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/categories/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/backend/pages/categories/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/laraveltkh.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laraveltkh.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductItemController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductItemController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ProductImage.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ProductImage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ProductItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ProductItem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/01d04ec278b0285d20dff6b2b5470fe5f.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/022e453f9b79ab55b7add23e42c3b7d3f.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/050087ae782cb1d9e763f8e8007999ce4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/0fcceced9572cff1ba3e050e3ec2c3f2b.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/150087ae782cb1d9e763f8e8007999ce4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/1fcceced9572cff1ba3e050e3ec2c3f2b.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/250087ae782cb1d9e763f8e8007999ce4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/2fcceced9572cff1ba3e050e3ec2c3f2b.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/pages/categories/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/pages/categories/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -167,28 +176,17 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="G:\xampp\htdocs\lv-ecommerce\resources\views\backend\pages\categories" />
-      <recent name="D:\xampp\htdocs\lv-ecommerce\resources\views" />
-      <recent name="D:\xampp\htdocs\lv-ecommerce\public\addmin" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\xampp\htdocs\lv-ecommerce\resources\views\frondend" />
       <recent name="D:\xampp\htdocs\lv-ecommerce\resources\views\admin\pages\product" />
       <recent name="E:\xampp\htdocs\laraveltkh\resources\views\layouts" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\lv-ecommerce\resources\views\backend\pages\categories" />
+      <recent name="G:\xampp\htdocs\lv-ecommerce\resources\views\backend\pages\categories" />
+      <recent name="D:\xampp\htdocs\lv-ecommerce\resources\views" />
+      <recent name="D:\xampp\htdocs\lv-ecommerce\public\addmin" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -197,18 +195,15 @@
     </configuration>
   </component>
   <component name="ServiceViewManager">
-    <option name="allServicesViewState">
-      <serviceView>
-        <treeState>
-          <expand>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@7c0d1686" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-            </path>
-          </expand>
-          <select />
-        </treeState>
-      </serviceView>
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
     </option>
   </component>
   <component name="SvnConfiguration">
@@ -314,6 +309,8 @@
       <workItem from="1583212597816" duration="4328000" />
       <workItem from="1583299495884" duration="8313000" />
       <workItem from="1583386901636" duration="5262000" />
+      <workItem from="1583470875171" duration="1238000" />
+      <workItem from="1583562896874" duration="13881000" />
     </task>
     <servers />
   </component>
@@ -353,6 +350,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="385" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1577723228546" />
+    <state x="413" y="121" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1583570602856">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="121" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1583570602856" />
     <state x="380" y="49" width="620" height="630" key="#phpunit.xml" timestamp="1576859599299">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -401,10 +402,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1578768928851" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1578758232343">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1583571009773">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1578758232343" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1583571009773" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

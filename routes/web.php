@@ -49,8 +49,15 @@ Route::delete('/admin/product/{item}','ProductItemController@delete');
  * */
 
 Route::get('admin/categories','CategoryController@index')->name('categories');
+Route::get('/admin/categories/create','CategoryController@create')->name('addCategory');
+Route::post('/admin/categories/store','CategoryController@store');
 
-
+Route::get('/admin/category/{item}/edit','CategoryController@edit');
+Route::patch('admin/category/{item}/edit','CategoryController@update');
+Route::delete('/admin/categories/{item}','CategoryController@delete');
+/*
+ * categories route end
+ * */
 
 //registration with file upload form
 Route::get('/register','PagesController@registerForm')->name('register');

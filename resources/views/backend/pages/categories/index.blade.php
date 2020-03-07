@@ -6,8 +6,7 @@
                 <div class="card-header">
                     <i class="fas fa-table"></i>
                     Data Table Example
-                    <a href="{{ route('addProduct') }}" class="btn btn-outline-success text-right">Add New Product</a>
-                    {{--                    <div class="text-right"><button class="btn btn-outline-success"></button>--}}
+                    <a href="{{ route('addCategory') }}" class="btn btn-outline-success text-right">Add New Category</a>
                 </div>
             </div>
 
@@ -17,9 +16,8 @@
                         <thead>
                         <tr>
                             <th>Sl. No.</th>
-                            <th>Product Name</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
+                            <th>Category Name</th>
+                            <th>Parent Category</th>
                             <th>Description</th>
                             <th>Image</th>
                             <th>Action</th>
@@ -28,27 +26,29 @@
                         <tbody>
 
                         <?php $sl = 1; ?>
-                        @foreach($categories as $data)
+                        @foreach($categories as $category)
                             <tr>
                                 <td class="border-left">{{ $sl++ }}</td>
-                                <td>{{ $data->name }}</td>
-                                <td>{{ $data->parent_id }}</td>
-                                <td>{{ substr($data->description,0,40) }}</td>
+                                <td>{{ $category->name }}</td>
                                 <td>
-                                    {{-- for multiple image --}}
-                                   {{-- @foreach($data->productPhotos as $img)
-                                        <img src="{{ asset("/images/").'/'.$img->image }}" width="50px"/>
-                                    @endforeach--}}
+                                    @if( $category->parent_id == NULL )
+                                        Primary Category
+                                        @else
+                                        {{ $category->parent->name }}
+                                    @endif
+                                </td>
+                                <td>{{ substr($category->description,0,40) }}</td>
+                                <td>
+                                    <img src="{{ asset("/images/").'/'.$category->image }}" width="50px"/>
                                 </td>
 
                                 <td>
-                                    <a href='{{url("admin/product/$data->id/edit")}}' type="button"
+                                    <a href='{{url("admin/category/$category->id/edit")}}' type="button"
                                        class="btn-warning btn-sm"> Edit </a>||
-                                    <form action='{{url("admin/categories/$data->id")}}' method="post">
+                                    <form action='{{url("admin/categories/$category->id")}}' method="post">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="btn btn-danger btn-sm" type="submit"
-                                                onclick="return confirm('Are you sure delete!!!')">Delete
+                                        <button class="btn btn-danger btn-sm" type="submit" onclick="return confirm('Are you sure delete!!!')">Delete
                                         </button>
                                     </form>
                                 </td>

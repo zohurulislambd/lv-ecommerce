@@ -100,7 +100,6 @@ class ProductItemController extends Controller
             @unlink($images[] = $data['image']);
             $image->move(public_path("images"), $data['image']);
         }
-        dd($data);
 //        single image update
        /* if ($request->hasFile('image')) {
             $image = $request->file('image');
